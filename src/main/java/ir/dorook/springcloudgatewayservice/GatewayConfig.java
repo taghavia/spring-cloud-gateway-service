@@ -13,8 +13,6 @@ public class GatewayConfig {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                // Add a simple re-route from: /get to: http://httpbin.org:80
-                // Add a simple "Hello:World" HTTP Header
 
                 .route(p -> p
                         .path("/all")
@@ -51,7 +49,7 @@ public class GatewayConfig {
 
 
                 .route(p -> p
-                        .path("/get") // intercept calls to the /get path
+                        .path("/get") //
                         .filters(f -> f.addRequestHeader("Hello", "World")
                                 .hystrix(config -> config.setName("get-service"))
                         ) // add header
