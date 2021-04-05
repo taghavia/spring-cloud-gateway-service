@@ -24,6 +24,7 @@ public class GatewayConfig {
                                 .hystrix(config -> config.setName("countries-service")
                                         .setFallbackUri("forward:/countriesfallback"))
                         )
+
                         .uri("https://restcountries-v1.p.rapidapi.com"))
 
                 .route(p -> p
